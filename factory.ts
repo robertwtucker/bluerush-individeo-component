@@ -2,9 +2,9 @@
 
 interface IData {
     attachmentCode: string;
+    getPayload(): object;
     language: string;
     environment: string;
-    getPayload(): object;
 }
 
 interface ICtx {
@@ -19,6 +19,7 @@ const blueRushIndiVideoComponent: IBobrilComponent = {
     init(ctx: ICtx): void {
     },
      */
+
     render(ctx: ICtx, me: IBobrilNodeWithTag | IBobrilNodeWithComponent | IBobrilNodeWithChildren): void {
         const d = ctx.data;
         me.tag = "script";
@@ -28,9 +29,10 @@ const blueRushIndiVideoComponent: IBobrilComponent = {
         };
         me.attrs["data-bp-attachment-code"] = d.attachmentCode;
         me.attrs["data-bp-individeo-data"] = "'" + JSON.stringify(d.getPayload()) + "'";
-        me.attrs["data-bp-lang"] = d.language;
-        me.attrs["data-bp-env"] = d.environment;
+        if (d.language) me.attrs["data-bp-lang"] = d.language;
+        if (d.environment) me.attrs["data-bp-env"] = d.environment;
     }
+
     /*,
     destroy(ctx: ICtx): void {
         // Placeholder for event subscription release
@@ -40,16 +42,16 @@ const blueRushIndiVideoComponent: IBobrilComponent = {
 
 export function blueRushIndiVideoComponentFactory(
     attachmentCode: string,
+    getPayload: () => object,
     language: string,
-    environment: string,
-    getPayload: () => object
+    environment: string
 ): IBobrilNode {
     return {
         data: <IData>{
             attachmentCode,
+            getPayload,
             language,
-            environment,
-            getPayload
+            environment
         },
         component: blueRushIndiVideoComponent
     };

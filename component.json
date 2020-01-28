@@ -1,19 +1,22 @@
 {
     "name": "BlueRushIndiVideo",
     "displayName": "BlueRush IndiVideo",
-    "version": "0.0.6",
+    "version": "0.0.7",
     "compatibility": 3,
     "tags": [
         "Media"
     ],
-    "libraries": [
-        "ajax"
-    ],
+    "libraries": [],
     "displayType": "Block",
     "properties": {
         "AttachmentCode": {
             "type": "String",
             "default": ""
+        },
+        "PersonalizedData": {
+            "type": "InputMapping",
+            "default": "",
+            "displayName": "PersonalizedData"
         },
         "Language": {
             "type": "String",
@@ -22,11 +25,6 @@
         "Environment": {
             "type": "String",
             "default": ""
-        },
-        "PersonalizedData": {
-            "type": "InputMapping",
-            "default": "",
-            "displayName": "PersonalizedData"
         }
     },
     "defaultData": {

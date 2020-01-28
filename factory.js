@@ -15,8 +15,10 @@ var blueRushIndiVideoComponent = {
         };
         me.attrs["data-bp-attachment-code"] = d.attachmentCode;
         me.attrs["data-bp-individeo-data"] = "'" + JSON.stringify(d.getPayload()) + "'";
-        me.attrs["data-bp-lang"] = d.language;
-        me.attrs["data-bp-env"] = d.environment;
+        if (d.language)
+            me.attrs["data-bp-lang"] = d.language;
+        if (d.environment)
+            me.attrs["data-bp-env"] = d.environment;
     }
     /*,
     destroy(ctx: ICtx): void {
@@ -24,13 +26,13 @@ var blueRushIndiVideoComponent = {
     }
     */
 };
-function blueRushIndiVideoComponentFactory(attachmentCode, language, environment, getPayload) {
+function blueRushIndiVideoComponentFactory(attachmentCode, getPayload, language, environment) {
     return {
         data: {
             attachmentCode: attachmentCode,
+            getPayload: getPayload,
             language: language,
-            environment: environment,
-            getPayload: getPayload
+            environment: environment
         },
         component: blueRushIndiVideoComponent
     };
