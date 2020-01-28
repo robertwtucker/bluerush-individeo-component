@@ -1,0 +1,34 @@
+{
+    "name": "BlueRushIndiVideo",
+    "displayName": "BlueRush IndiVideo",
+    "version": "0.0.6",
+    "compatibility": 3,
+    "tags": [
+        "Media"
+    ],
+    "libraries": [
+        "ajax"
+    ],
+    "displayType": "Block",
+    "properties": {
+        "AttachmentCode": {
+            "type": "String",
+            "default": ""
+        },
+        "Language": {
+            "type": "String",
+            "default": ""
+        },
+        "Environment": {
+            "type": "String",
+            "default": ""
+        },
+        "PersonalizedData": {
+            "type": "InputMapping",
+            "default": "",
+            "displayName": "PersonalizedData"
+        }
+    },
+    "defaultData": {
+    }
+}
