@@ -28,7 +28,7 @@ const blueRushIndiVideoComponent: IBobrilComponent = {
             src: "https://d2ur3inljr7jwd.cloudfront.net/individeo/prod/v20/js/smartEmbed.js"
         };
         me.attrs["data-bp-attachment-code"] = d.attachmentCode;
-        me.attrs["data-bp-individeo-data"] = "'" + JSON.stringify(d.getPayload()) + "'";
+        me.attrs["data-bp-individeo-data"] = JSON.stringify(d.getPayload());
         if (d.language) me.attrs["data-bp-lang"] = d.language;
         if (d.environment) me.attrs["data-bp-env"] = d.environment;
     }
