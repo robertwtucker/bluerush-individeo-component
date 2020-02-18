@@ -3,6 +3,7 @@
 interface IData {
     attachmentCode: string;
     getPayload(): object;
+    smartEmbedUrl: string;
     language: string;
     environment: string;
 }
@@ -25,7 +26,7 @@ const blueRushIndiVideoComponent: IBobrilComponent = {
         me.tag = "script";
         me.attrs = {
             type: "text/javascript",
-            src: "https://d2ur3inljr7jwd.cloudfront.net/individeo/prod/v20/js/smartEmbed.js"
+            src: d.smartEmbedUrl
         };
         me.attrs["data-bp-attachment-code"] = d.attachmentCode;
         me.attrs["data-bp-individeo-data"] = JSON.stringify(d.getPayload());
@@ -43,6 +44,7 @@ const blueRushIndiVideoComponent: IBobrilComponent = {
 export function blueRushIndiVideoComponentFactory(
     attachmentCode: string,
     getPayload: () => object,
+    smartEmbedUrl: string,
     language: string,
     environment: string
 ): IBobrilNode {
@@ -50,6 +52,7 @@ export function blueRushIndiVideoComponentFactory(
         data: <IData>{
             attachmentCode,
             getPayload,
+            smartEmbedUrl,
             language,
             environment
         },

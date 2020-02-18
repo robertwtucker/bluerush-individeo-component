@@ -11,7 +11,7 @@ var blueRushIndiVideoComponent = {
         me.tag = "script";
         me.attrs = {
             type: "text/javascript",
-            src: "https://d2ur3inljr7jwd.cloudfront.net/individeo/prod/v20/js/smartEmbed.js"
+            src: d.smartEmbedUrl
         };
         me.attrs["data-bp-attachment-code"] = d.attachmentCode;
         me.attrs["data-bp-individeo-data"] = JSON.stringify(d.getPayload());
@@ -26,11 +26,12 @@ var blueRushIndiVideoComponent = {
     }
     */
 };
-function blueRushIndiVideoComponentFactory(attachmentCode, getPayload, language, environment) {
+function blueRushIndiVideoComponentFactory(attachmentCode, getPayload, smartEmbedUrl, language, environment) {
     return {
         data: {
             attachmentCode: attachmentCode,
             getPayload: getPayload,
+            smartEmbedUrl: smartEmbedUrl,
             language: language,
             environment: environment
         },
