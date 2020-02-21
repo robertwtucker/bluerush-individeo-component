@@ -1,4 +1,5 @@
-/// <reference path='../../Libraries/bobril/library.d.ts'/>
+/// <reference path="../../Libraries/bobril/library.d.ts"/>
+/// <reference path="../../Libraries/dc-helpers/library.ts"/>
 
 interface IData {
     attachmentCode: string;
@@ -22,8 +23,16 @@ const blueRushIndiVideoComponent: IBobrilComponent = {
      */
 
     render(ctx: ICtx, me: IBobrilNodeWithTag | IBobrilNodeWithComponent | IBobrilNodeWithChildren): void {
+        if (!PRODUCTION) {
+            me.tag = "div";
+            me.children = {
+                tag: "h2",
+                children: "BlueRush IndiVideo Personalized Digital Video"
+            };
+            return;
+        }
+
         const d = ctx.data;
-        me.tag = "script";
         me.attrs = {
             type: "text/javascript",
             src: d.smartEmbedUrl

@@ -1,5 +1,6 @@
 "use strict";
-/// <reference path='../../Libraries/bobril/library.d.ts'/>
+/// <reference path="../../Libraries/bobril/library.d.ts"/>
+/// <reference path="../../Libraries/dc-helpers/library.ts"/>
 var blueRushIndiVideoComponent = {
     id: "BlueRushIndiVideoComponent",
     /*
@@ -7,8 +8,15 @@ var blueRushIndiVideoComponent = {
     },
      */
     render: function (ctx, me) {
+        if (!PRODUCTION) {
+            me.tag = "div";
+            me.children = {
+                tag: "h1",
+                children: "BlueRush IndiVideo Personalized Digital Video"
+            };
+            return;
+        }
         var d = ctx.data;
-        me.tag = "script";
         me.attrs = {
             type: "text/javascript",
             src: d.smartEmbedUrl
