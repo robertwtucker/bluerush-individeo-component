@@ -1,5 +1,5 @@
 /// <reference path="../../Libraries/bobril/library.d.ts"/>
-/// <reference path="../../Libraries/dc-helpers/library.ts"/>
+declare var PRODUCTION: boolean;
 
 interface IData {
     attachmentCode: string;
@@ -23,24 +23,24 @@ const blueRushIndiVideoComponent: IBobrilComponent = {
      */
 
     render(ctx: ICtx, me: IBobrilNodeWithTag | IBobrilNodeWithComponent | IBobrilNodeWithChildren): void {
-        if (!PRODUCTION) {
-            me.tag = "div";
-            me.children = {
-                tag: "h2",
-                children: "BlueRush IndiVideo Personalized Digital Video"
-            };
-            return;
-        }
+        // if (!PRODUCTION) {
+        //     me.tag = "h3";
+        //     me.children = "IndiVideo Personalized Digital Video";
+        //     return;
+        // }
 
-        const d = ctx.data;
-        me.attrs = {
-            type: "text/javascript",
-            src: d.smartEmbedUrl
-        };
-        me.attrs["data-bp-attachment-code"] = d.attachmentCode;
-        me.attrs["data-bp-individeo-data"] = JSON.stringify(d.getPayload());
-        if (d.language) me.attrs["data-bp-lang"] = d.language;
-        if (d.environment) me.attrs["data-bp-env"] = d.environment;
+        if (PRODUCTION) {
+            const d = ctx.data;
+            me.tag = "script";
+            me.attrs = {
+                type: "text/javascript",
+                src: d.smartEmbedUrl
+            };
+            me.attrs["data-bp-attachment-code"] = d.attachmentCode;
+            me.attrs["data-bp-individeo-data"] = JSON.stringify(d.getPayload());
+            if (d.language) me.attrs["data-bp-lang"] = d.language;
+            if (d.environment) me.attrs["data-bp-env"] = d.environment;
+        }
     }
 
     /*,

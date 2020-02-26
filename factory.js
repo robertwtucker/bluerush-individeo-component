@@ -1,6 +1,5 @@
 "use strict";
 /// <reference path="../../Libraries/bobril/library.d.ts"/>
-/// <reference path="../../Libraries/dc-helpers/library.ts"/>
 var blueRushIndiVideoComponent = {
     id: "BlueRushIndiVideoComponent",
     /*
@@ -8,25 +7,25 @@ var blueRushIndiVideoComponent = {
     },
      */
     render: function (ctx, me) {
-        if (!PRODUCTION) {
-            me.tag = "div";
-            me.children = {
-                tag: "h1",
-                children: "BlueRush IndiVideo Personalized Digital Video"
+        // if (!PRODUCTION) {
+        //     me.tag = "h3";
+        //     me.children = "IndiVideo Personalized Digital Video";
+        //     return;
+        // }
+        if (PRODUCTION) {
+            var d = ctx.data;
+            me.tag = "script";
+            me.attrs = {
+                type: "text/javascript",
+                src: d.smartEmbedUrl
             };
-            return;
+            me.attrs["data-bp-attachment-code"] = d.attachmentCode;
+            me.attrs["data-bp-individeo-data"] = JSON.stringify(d.getPayload());
+            if (d.language)
+                me.attrs["data-bp-lang"] = d.language;
+            if (d.environment)
+                me.attrs["data-bp-env"] = d.environment;
         }
-        var d = ctx.data;
-        me.attrs = {
-            type: "text/javascript",
-            src: d.smartEmbedUrl
-        };
-        me.attrs["data-bp-attachment-code"] = d.attachmentCode;
-        me.attrs["data-bp-individeo-data"] = JSON.stringify(d.getPayload());
-        if (d.language)
-            me.attrs["data-bp-lang"] = d.language;
-        if (d.environment)
-            me.attrs["data-bp-env"] = d.environment;
     }
     /*,
     destroy(ctx: ICtx): void {

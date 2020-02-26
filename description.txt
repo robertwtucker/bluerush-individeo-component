@@ -1,4 +1,5 @@
-﻿<B>BlueRush IndiVideo –  Use IndiVideo to display personalized digital videos to drive engagement across the customer journey.</B>
+﻿<B>IndiVideo Personalized Video</B>
+Use the BlueRush IndiVideo component to display personalized digital videos to drive engagement across the customer journey.
    Available mapping fields:
       - AttachmentCode: String - The unique video identifier provided by BlueRush.
       - PersonalizedData: InputMapping - The data elements used to override the video defaults. Passed as flat JSON.
