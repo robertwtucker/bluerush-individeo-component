@@ -1,37 +1,26 @@
 "use strict";
-/// <reference path="../../Libraries/bobril/library.d.ts"/>
 var blueRushIndiVideoComponent = {
     id: "BlueRushIndiVideoComponent",
-    /*
-    init(ctx: ICtx): void {
-    },
-     */
     render: function (ctx, me) {
-        // if (!PRODUCTION) {
-        //     me.tag = "h3";
-        //     me.children = "IndiVideo Personalized Digital Video";
-        //     return;
-        // }
         if (PRODUCTION) {
-            var d = ctx.data;
+            var d_1 = ctx.data;
             me.tag = "script";
             me.attrs = {
                 type: "text/javascript",
-                src: d.smartEmbedUrl
+                src: d_1.smartEmbedUrl
             };
-            me.attrs["data-bp-attachment-code"] = d.attachmentCode;
-            me.attrs["data-bp-individeo-data"] = JSON.stringify(d.getPayload());
-            if (d.language)
-                me.attrs["data-bp-lang"] = d.language;
-            if (d.environment)
-                me.attrs["data-bp-env"] = d.environment;
+            me.attrs["data-bp-attachment-code"] = d_1.attachmentCode;
+            me.attrs["data-bp-individeo-data"] = JSON.stringify(d_1.getPayload());
+            if (d_1.language)
+                me.attrs["data-bp-lang"] = d_1.language;
+            if (d_1.environment)
+                me.attrs["data-bp-env"] = d_1.environment;
+        }
+        else {
+            me.tag = "div";
+            me.children = "IndiVideo Personalized Digital Video";
         }
     }
-    /*,
-    destroy(ctx: ICtx): void {
-        // Placeholder for event subscription release
-    }
-    */
 };
 function blueRushIndiVideoComponentFactory(attachmentCode, getPayload, smartEmbedUrl, language, environment) {
     return {

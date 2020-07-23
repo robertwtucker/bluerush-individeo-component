@@ -1,5 +1,5 @@
 /// <reference path="../../Libraries/bobril/library.d.ts"/>
-declare var PRODUCTION: boolean;
+/// <reference path='../../Libraries/dc-helpers/library.ts'/>
 
 interface IData {
     attachmentCode: string;
@@ -23,12 +23,6 @@ const blueRushIndiVideoComponent: IBobrilComponent = {
      */
 
     render(ctx: ICtx, me: IBobrilNodeWithTag | IBobrilNodeWithComponent | IBobrilNodeWithChildren): void {
-        // if (!PRODUCTION) {
-        //     me.tag = "h3";
-        //     me.children = "IndiVideo Personalized Digital Video";
-        //     return;
-        // }
-
         if (PRODUCTION) {
             const d = ctx.data;
             me.tag = "script";
@@ -40,6 +34,9 @@ const blueRushIndiVideoComponent: IBobrilComponent = {
             me.attrs["data-bp-individeo-data"] = JSON.stringify(d.getPayload());
             if (d.language) me.attrs["data-bp-lang"] = d.language;
             if (d.environment) me.attrs["data-bp-env"] = d.environment;
+        } else {
+            me.tag = "div";
+            me.children = "IndiVideo Personalized Digital Video";
         }
     }
 
