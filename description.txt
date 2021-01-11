@@ -1,11 +1,8 @@
 ﻿<B>IndiVideo Personalized Video</B>
 Use the BlueRush IndiVideo component to display personalized digital videos to drive engagement across the customer journey.
-   Available mapping fields:
-      - AttachmentCode: String - The unique video identifier provided by BlueRush.
-      - PersonalizedData: InputMapping - The data elements used to override the video defaults. Passed as flat JSON.
-      - SmartEmbedURL: String - The URL for the IndiVideo SmartEmbed component to use for the video.
-      - Language: String - Optional attribute for specifying which language to use (i.e. en-US) when more than one is available in the video.
-      - Environment: String - Optional variable specifying the environment to use. Can contain: dev, uat, and prod. If no value is supplied, prod will be used.
-  Available Events and Handlers:
-      - [To Be Implemented] Played: Event – Specifies an action that is triggered after playing of the video.
-      - [To Be Implemented] Ended: Event – Specifies an action that is triggered after the video ends.
+Available mapping fields:
+  - AttachmentCode: String - The unique video identifier provided by BlueRush.
+  - PersonalizedData: InputMapping - The data elements used to override the video defaults. Passed as flat JSON.
+  - SmartEmbedURL: String - The URL for the IndiVideo SmartEmbed component to use for the video.
+  - Language: String - Optional attribute for specifying which language to use (i.e. en-US) when more than one is available in the video.
+  - Environment: String - Optional variable specifying the environment to use. Can contain: dev, uat, and prod. If no value is supplied, prod will be used.
